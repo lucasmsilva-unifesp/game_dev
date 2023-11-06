@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Character
+class_name Character, "res://Assets/Pixel Crawler - FREE - 1.8/Heroes/Rogue/Idle/Idle-Sheet.png"
 
 const FRICTION: float = 0.15
 

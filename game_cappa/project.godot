@@ -14,19 +14,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Characters.gd"
 }, {
-"base": "Character",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://Characters/Enemies/Enemy.gd"
-}, {
 "base": "Node",
 "class": "FiniteStateMachine",
 "language": "GDScript",
 "path": "res://Characters/FMS.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
-"Enemy": "",
+"Character": "res://Assets/Pixel Crawler - FREE - 1.8/Heroes/Rogue/Idle/Idle-Sheet.png",
 "FiniteStateMachine": ""
 }
 

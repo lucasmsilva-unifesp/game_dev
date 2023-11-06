@@ -1,8 +1,5 @@
 extends Character
 
-onready var sword: Node2D = get_node("Sword")
-onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
-
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	
@@ -10,14 +7,7 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
-	
-	sword.rotation = mouse_direction.angle()
-	if sword.scale.y == 1 and mouse_direction.x < 0:
-		sword.scale.y = -1
-	elif sword.scale.y == -1 and mouse_direction.x > 0:
-		sword.scale.y = 1
-	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing():
-		sword_animation_player.play("Attack")
+		
 		
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
