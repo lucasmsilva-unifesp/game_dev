@@ -31,4 +31,4 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.idle:
 			animation_player.play("idle")
 		states.move:
-			animation_player.play("run")
+			animation_player.play("move")

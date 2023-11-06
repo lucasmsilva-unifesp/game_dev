@@ -1,23 +1,23 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://Characters/Enemies/Flying Creature/FlyingCreatureFSM.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Enemies/Flying Creature/FlyingCreatureFSM.gd" type="Script" id=2]
+[ext_resource path="res://Assets/enemies/flying creature/fly_anim_spritesheet.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=5]
@@ -28,10 +28,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=7]
-radius = 4.0
+[sub_resource type="CircleShape2D" id=6]
+radius = 3.0
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=8]
 resource_name = "fly"
 length = 0.4
 loop = true
@@ -61,9 +76,11 @@ tracks/1/keys = {
 }
 
 [node name="FlyingCreature" instance=ExtResource( 1 )]
+accerelation = 20
+max_speed = 50
 
 [node name="FiniteStateMachine" parent="." index="0"]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )
@@ -72,8 +89,8 @@ frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, 1 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer" parent="." index="3"]
-root_node = NodePath("../CollisionShape2D")
-anims/fly = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+anims/fly = SubResource( 8 )

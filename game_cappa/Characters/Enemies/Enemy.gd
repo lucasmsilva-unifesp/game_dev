@@ -1,5 +1,5 @@
 extends Character
-class_name Enemy, "res://Assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc/Idle/Idle-Sheet.png"
+class_name Enemy, "res://Assets/enemies/flying creature/fly_anim_f0.png"
 
 var path: PoolVector2Array
 
@@ -21,7 +21,7 @@ func chase() -> void:
 			animated_sprite.flip_h = false
 		elif vector_to_next_point.x < 0 and not animated_sprite.flip_h:
 			animated_sprite.flip_h = true
-			
 
-func _on_PathTimer_timeout():
-	path = navigation.map_get_path(global_position, player.position)
+
+func _on_PathTimer_timeout() -> void:
+	path = navigation.get_simple_path(global_position, player.position)

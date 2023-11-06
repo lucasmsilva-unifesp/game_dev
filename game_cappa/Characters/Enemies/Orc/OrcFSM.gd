@@ -22,4 +22,4 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, new_state: int) -> void:
 	match new_state:
 		states.chase:
-			animation_player.play("idle")
+			animation_player.play("move")
