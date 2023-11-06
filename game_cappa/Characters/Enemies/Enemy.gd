@@ -1,5 +1,5 @@
 extends Character
-class_name Enemy
+class_name Enemy, "res://Assets/enemies/flying creature/fly_anim_f0.png"
 
 var path: PoolVector2Array
 

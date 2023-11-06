@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Character
+class_name Character, "res://Assets/heroes/knight/knight_idle_anim_f0.png"
 
 const FRICTION: float = 0.15
 
@@ -14,7 +14,7 @@ var velocity: Vector2 = Vector2.ZERO
 func _physics_process(_delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	velocity = lerp(velocity, Vector2.ZERO, FRICTION)
-
+	
 func move() -> void:
 	mov_direction = mov_direction.normalized()
 	velocity = mov_direction * accerelation
