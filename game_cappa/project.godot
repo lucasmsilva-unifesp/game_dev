@@ -23,16 +23,22 @@ _global_script_classes=[ {
 "class": "FiniteStateMachine",
 "language": "GDScript",
 "path": "res://FSM.gd"
+}, {
+"base": "Area2D",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://Characters/Hitbox.gd"
 } ]
 _global_script_class_icons={
 "Character": "res://Assets/heroes/knight/knight_idle_anim_f0.png",
 "Enemy": "res://Assets/enemies/flying creature/fly_anim_f0.png",
-"FiniteStateMachine": ""
+"FiniteStateMachine": "",
+"Hitbox": ""
 }
 
 [application]
 
-config/name="roguelike_turorial_3_5_3"
+config/name="game_cappa"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
