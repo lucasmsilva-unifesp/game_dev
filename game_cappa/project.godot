@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://FSM.gd"
 }, {
+"base": "Enemy",
+"class": "FlyingCreature",
+"language": "GDScript",
+"path": "res://Characters/Enemies/Flying Creature/FlyingCreature.gd"
+}, {
 "base": "Area2D",
 "class": "Hitbox",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Character": "res://Assets/heroes/knight/knight_idle_anim_f0.png",
 "Enemy": "res://Assets/enemies/flying creature/fly_anim_f0.png",
 "FiniteStateMachine": "",
+"FlyingCreature": "res://Assets/enemies/flying creature/fly_anim_f0.png",
 "Hitbox": ""
 }
 

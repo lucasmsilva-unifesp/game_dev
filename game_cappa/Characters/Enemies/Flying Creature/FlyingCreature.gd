@@ -1,4 +1,5 @@
 extends Enemy
+class_name FlyingCreature, "res://Assets/enemies/flying creature/fly_anim_f0.png"
 
 onready var hitbox: Area2D = get_node("Hitbox")
 
