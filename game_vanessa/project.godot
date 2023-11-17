@@ -10,16 +10,28 @@ config_version=4
 
 [application]
 
-config/name="Novo Projeto De Jogo"
+config/name="game_vanessa"
+run/main_scene="res://levels/level_1/flor.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/height=1024
+window/size/width=900
+window/size/height=700
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+pressionado={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 
