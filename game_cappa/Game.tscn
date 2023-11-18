@@ -25,11 +25,12 @@ tint_progress = Color( 0.545098, 0.0352941, 0.0352941, 1 )
 
 [node name="Tween" type="Tween" parent="UI/HealthBar"]
 
-[node name="Room0" parent="." instance=ExtResource( 4 )]
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Room0" parent="Rooms" instance=ExtResource( 4 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 99, 231 )
-z_index = 1
+position = Vector2( 163, 194 )
 hp = 4
 accerelation = 80
 max_speed = 200
