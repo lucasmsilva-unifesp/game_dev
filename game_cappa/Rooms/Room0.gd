@@ -30,11 +30,13 @@ func _on_enemy_killed() -> void:
 func _open_rocks() -> void:
 	for rock in rock_container.get_children():
 		rock.open()
-		
+
+
 func _close_entrace() -> void:
 	var rock_down: StaticBody2D = DOWN_ROCKS.instance()
 	rock_down.close()
-	
+
+
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D = ENEMY_SCENES.FLYING_CREATURE.instance()

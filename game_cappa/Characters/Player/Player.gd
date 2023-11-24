@@ -3,6 +3,13 @@ extends Character
 onready var sword: Node2D = get_node("Sword")
 onready var sword_hitbox: Area2D = get_node("Sword/Node2D/Sprite/Hitbox")
 onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
+onready var dash_timer: Timer = get_node("DashTimer")
+
+### Dash
+var dashing = false
+var dash_direction: Vector2 = Vector2.ZERO
+const DASH_SPEED = 400
+const DASH_TIME = 0.2
 
 
 func _process(_delta: float) -> void:
@@ -19,6 +26,13 @@ func _process(_delta: float) -> void:
 		sword.scale.y = -1
 	elif sword.scale.y == -1 and mouse_direction.x > 0:
 		sword.scale.y = 1
+		
+	if dashing:
+		position += mov_direction * DASH_SPEED * _delta
+	else:
+		get_input()
+		if dashing and Input.is_action_just_pressed("ui_dash"):
+			start_dash()
 
 
 func get_input() -> void:
@@ -34,3 +48,23 @@ func get_input() -> void:
 		
 	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing():
 		sword_animation_player.play("attack")
+		
+	if Input.is_action_just_pressed("ui_dash") and not dashing:
+		start_dash()
+		
+
+func start_dash() -> void:
+	if mov_direction != Vector2.ZERO:
+		dash_direction = mov_direction.normalized()
+		dashing = true
+		dash_timer.start(DASH_TIME)
+
+
+func _on_DashTimer_timeout() -> void:
+	dashing = false
+	dash_timer.stop()  # Certifique-se de que o timer é interrompido ao finalizar o dash
+	mov_direction = Vector2.ZERO
+
+
+func is_dashing() -> bool:
+	return dashing

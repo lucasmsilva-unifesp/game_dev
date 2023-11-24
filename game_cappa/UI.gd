@@ -18,9 +18,12 @@ func _update_health_bar(new_value: int) -> void:
 				"value", health_bar.value, new_value, 0.5, Tween.TRANS_QUINT,
 				Tween.EASE_OUT)
 	__ = health_bar_tween.start()
+	if player.hp == 0:
+		get_tree().change_scene("res://GameOver.tscn")
 	
 
 func _on_Player_hp_changed(new_hp):
 	var new_health: int = int((100 - MIN_HEALTH) * 
 	float(new_hp) / max_hp) + MIN_HEALTH
 	_update_health_bar(new_health)
+	
