@@ -1,0 +1,19 @@
+# Godot-specific ignores
+game_cappa/.import/
+game_vanessa/.import/
+export.cfg
+export_presets.cfg
+
+
+# Mono-specific ignores
+game_cappa/.mono/
+game_vanessa/.mono/
+data_*/
+mono_crash.*.json
+
+# Project Template
+game_cappa/icon.png
+game_cappa/icon.png.import
+
+game_vanessa/icon.png
+game_vanessa/icon.png.import
