@@ -3,7 +3,7 @@ class_name Enemy, "res://Assets/enemies/flying creature/fly_anim_f0.png"
 
 var path: PoolVector2Array
 
-onready var navigation: Navigation2D = get_tree().current_scene.get_node("Navigation2D")
+onready var navigation: Navigation2D = get_parent().get_node("Navigation2D")
 onready var player: KinematicBody2D = get_tree().current_scene.get_node("Player")
 onready var path_timer: Timer = get_node("PathTimer")
 
