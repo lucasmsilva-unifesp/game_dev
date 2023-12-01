@@ -37,5 +37,6 @@ accerelation = 80
 max_speed = 200
 
 [node name="pause_menu" parent="." instance=ExtResource( 1 )]
+visible = true
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
