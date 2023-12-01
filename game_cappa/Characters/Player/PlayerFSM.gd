@@ -27,8 +27,6 @@ func _state_logic(_delta: float) -> void:
 		if !parent.is_dashing():
 			set_state(states.move)
 	
-	
-	
 func _get_transition() -> int:
 	match state:
 		states.idle:
