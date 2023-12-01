@@ -1,9 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/map.jpg" type="Texture" id=3]
+[ext_resource path="res://Fonts/JimNightshade-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://MadeBy.tscn" type="PackedScene" id=5]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_color = Color( 0.0862745, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 21
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.168627, 0.152941, 0.152941, 1 )
 corner_radius_top_left = 17
 corner_radius_top_right = 17
@@ -24,14 +36,23 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
+[sub_resource type="DynamicFont" id=6]
+size = 21
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+font_data = ExtResource( 4 )
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
 mainGameScene = ExtResource( 2 )
+madeByScene = ExtResource( 5 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 479.0
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 480.0
 margin_bottom = 272.0
-color = Color( 0.384314, 0.215686, 0.0705882, 1 )
+texture = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 480.0
@@ -49,15 +70,17 @@ margin_bottom = 256.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 280.0
-margin_bottom = 121.0
+margin_bottom = 103.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Nome do jogo xD"
+custom_colors/font_color = Color( 0.478431, 0.129412, 0.0470588, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Ruins of Eldoria"
 align = 1
 valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 125.0
+margin_top = 107.0
 margin_right = 280.0
 margin_bottom = 247.0
 size_flags_horizontal = 3
@@ -66,7 +89,7 @@ custom_constants/separation = 25
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_right = 280.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -75,19 +98,21 @@ custom_constants/margin_left = 50
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 margin_left = 50.0
 margin_right = 230.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 1 )
+custom_colors/font_color = Color( 0.913725, 0.807843, 0.807843, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "New Game"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 49.0
+margin_top = 55.0
 margin_right = 280.0
-margin_bottom = 73.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -96,19 +121,20 @@ custom_constants/margin_left = 50
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 margin_left = 50.0
 margin_right = 230.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "Options"
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 98.0
+margin_top = 110.0
 margin_right = 280.0
-margin_bottom = 122.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -117,13 +143,15 @@ custom_constants/margin_left = 50
 [node name="Made By" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
 margin_left = 50.0
 margin_right = 230.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "Made By"
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/New Game" to="." method="_on_New_Game_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/Made By" to="." method="_on_Made_By_pressed"]
