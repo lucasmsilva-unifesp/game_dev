@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=2]
-[ext_resource path="res://Assets/heroes/Rogue/Run/Run-Sheet.png" type="Texture" id=3]
-[ext_resource path="res://Assets/heroes/Rogue/Idle/Idle-Sheet.png" type="Texture" id=4]
+[ext_resource path="res://Assets/sprites_game_cappa/Personagem_Principal/sprites_personagem_principal/AricWalk-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/sprites_game_cappa/Personagem_Principal/sprites_personagem_principal/AricIdle-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://Characters/Characters.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/sprites_game_cappa/Personagem_Principal/armas/espada.png" type="Texture" id=6]
 [ext_resource path="res://Assets/effects (new)/slash_effect_anim_spritesheet.png" type="Texture" id=7]
@@ -26,45 +26,49 @@ region = Rect2( 32, 0, 16, 16 )
 atlas = ExtResource( 9 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 0, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 48, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 4 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 96, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 144, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 32, 64, 32 )
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 32, 64, 32 )
+region = Rect2( 0, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 32, 64, 32 )
+region = Rect2( 48, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 32, 64, 32 )
+region = Rect2( 96, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=46]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 32, 64, 32 )
+region = Rect2( 144, 0, 48, 64 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 32, 64, 32 )
+region = Rect2( 192, 0, 48, 64 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 48, 64 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
@@ -73,12 +77,12 @@ animations = [ {
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
@@ -221,7 +225,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=15]
 resource_name = "idle"
-length = 0.4
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("../AnimatedSprite:animation")
@@ -242,10 +246,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=16]
