@@ -5,7 +5,8 @@ const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/Spa
 const DOWN_ROCKS: PackedScene = preload("res://Rooms/Rock.tscn")
 
 const ENEMY_SCENES: Dictionary = {
-	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/FlyingCreature.tscn")
+	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/FlyingCreature.tscn"),
+	"MAGE_ESQUELETON": preload("res://Characters/Enemies/EsqueletoMaguinho/EsqueletoMaguinho.tscn")
 }
 
 var num_enemies: int
@@ -39,7 +40,11 @@ func _close_entrace() -> void:
 
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
-		var enemy: KinematicBody2D = ENEMY_SCENES.FLYING_CREATURE.instance()
+		var enemy: KinematicBody2D 
+		if randi() % 2 == 0:
+			enemy = ENEMY_SCENES.FLYING_CREATURE.instance()
+		else:
+			enemy = ENEMY_SCENES.MAGE_ESQUELETON.instance()
 		var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)

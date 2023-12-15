@@ -71,6 +71,9 @@ position = Vector2( 149, 136 )
 [node name="Position2D4" type="Position2D" parent="EnemyPositions"]
 position = Vector2( 308, 218 )
 
+[node name="Position2D5" type="Position2D" parent="EnemyPositions"]
+position = Vector2( 362, 176 )
+
 [node name="PlayerDetector" type="Area2D" parent="."]
 position = Vector2( 101, 259 )
 
