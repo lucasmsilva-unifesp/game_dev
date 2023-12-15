@@ -209,7 +209,6 @@ frames = SubResource( 15 )
 animation = "idle"
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 shape = SubResource( 16 )
 
 [node name="AnimationPlayer" parent="." index="3"]
