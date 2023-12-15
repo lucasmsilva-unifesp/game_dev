@@ -20,7 +20,12 @@ onready var player_detector: Area2D = get_node("PlayerDetector")
 
 func _ready() -> void:
 	num_enemies = enemy_positions_container.get_child_count()
-
+	
+	
+func _process(delta):
+	if num_enemies == 0:
+		get_tree().change_scene("res://win.gd")
+	
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
@@ -51,22 +56,13 @@ func _spawn_enemies() -> void:
 		call_deferred("add_child", spawn_explosion)
 
 
-func _on_Area2D_body_entered(_body: KinematicBody2D) -> void:
+
+func _on_PlayerDetector_body_entered(body):
 	player_detector.queue_free()
 	#_close_entrace()
 	var tempo = 10
-	_spawn_enemies()
-	#while(true):
-	#	_spawn_enemies()
-	#	yield(get_tree().create_timer(tempo), "timeout")
-	#	if tempo > 2:
-	#		tempo = tempo - 1
-
-
-func _on_Timer_timeout():
-	_spawn_enemies()
-
-
-func _on_PlayerDetectorExit_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	if (area.get_name() == "Area2DPlayer"):
-		get_tree().change_scene("res://Arena/Arena2.tscn")
+	for i in range(10): # 10 hordas
+		_spawn_enemies()
+		yield(get_tree().create_timer(tempo), "timeout")
+		if tempo > 4:
+			tempo = tempo - 1

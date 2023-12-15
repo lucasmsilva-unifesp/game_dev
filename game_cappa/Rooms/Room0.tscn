@@ -81,4 +81,12 @@ position = Vector2( 101, 259 )
 position = Vector2( 12, -10 )
 shape = SubResource( 1 )
 
+[node name="PlayerDetectorExit" type="Area2D" parent="."]
+position = Vector2( 326, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorExit"]
+position = Vector2( 12, -10 )
+shape = SubResource( 1 )
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_shape_entered" from="PlayerDetectorExit" to="." method="_on_PlayerDetectorExit_area_shape_entered"]

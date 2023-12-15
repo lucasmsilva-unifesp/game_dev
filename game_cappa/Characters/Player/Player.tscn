@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=2]
@@ -90,6 +90,8 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 9.5, 15 )
+
+[sub_resource type="RectangleShape2D" id=49]
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -433,14 +435,20 @@ frame = 1
 position = Vector2( 0.5, 1 )
 shape = SubResource( 37 )
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="Area2DPlayer" type="Area2D" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DPlayer" index="0"]
+shape = SubResource( 49 )
+
+[node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 14 )
 anims/dead = SubResource( 36 )
 anims/hurt = SubResource( 31 )
 anims/idle = SubResource( 15 )
 anims/move = SubResource( 16 )
 
-[node name="Sword" type="Node2D" parent="." index="4"]
+[node name="Sword" type="Node2D" parent="." index="5"]
 
 [node name="Node2D" type="Node2D" parent="Sword" index="0"]
 rotation = 2.0944
@@ -476,6 +484,6 @@ texture = ExtResource( 7 )
 hframes = 3
 frame = 1
 
-[node name="DashTimer" type="Timer" parent="." index="5"]
+[node name="DashTimer" type="Timer" parent="." index="6"]
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
